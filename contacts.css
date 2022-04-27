@@ -1,0 +1,18 @@
+ul {
+    font-size: 50px;
+}
+
+ol {
+    font-size: 40px;
+}
+
+ul>li {
+    list-style: none;
+}
+
+ul>li>input {
+    height: 40px;
+}
+ body{
+     background-color: aqua;
+ }
