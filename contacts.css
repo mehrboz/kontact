@@ -1,18 +1,38 @@
-ul {
-    font-size: 50px;
+button{
+    background-color: rgb(30, 31, 28);
+    color: aliceblue;
 }
-
-ol {
+body{
+    background-color: rgb(228, 230, 235);
+}
+input{
     font-size: 40px;
+    border-radius: 10px;
 }
-
-ul>li {
-    list-style: none;
+h1{
+    color: brown;
 }
-
-ul>li>input {
-    height: 40px;
+table{background-color: rgb(230, 230, 79);
+    box-shadow: 0 50px 200px rgb(12, 11, 11);
+    border-radius: 20px;
+    border-color: aliceblue;
+    
 }
- body{
-     background-color: aqua;
- }
+button{
+    font-size: 40px;
+    border-radius: 50px;
+    box-shadow: 0 5px 10px rgb(216, 39, 39);
+}div{
+    background-color: rgb(241, 163, 163);
+    color: rgb(65, 122, 8);
+}   
+p{
+   font-size: 40px;
+}
+body{
+    text-align: center;
+}
+input{
+    color: rgb(37, 34, 34);
+    background-color: rgb(160, 160, 196);
+}
