@@ -1,30 +1,77 @@
+const container = document.getElementById('container');
+const contacts = [
+    { name: 'salom,', telNumber: '+8900999,', adress: 'konibodom' },
+    { name: 'aslam,', telNumber: '+12211221,', adress: 'panjakent' },
+    { name: 'ahmad,', telNumber: '+6454537,', adress: 'khujand' }
+];
 
-let user = {
-    name: "Ahror",
-    nomer: 934108777,
-    adress: "asht",
-    El_pochta: "ahror@gmail.com      "
+drawIntoContainer(contacts);
+
+function addNew() {
+    const obj = {};
+    obj.name = window.prompt('name');
+    obj.telNumber = window.prompt('number');
+    obj.adress = window.prompt('adress')
+    contacts.push(obj);
+    drawIntoContainer(contacts);
 }
-for (key in user) {
-    console.log(key)
-    console.log(user[key])
+
+function findContacts(str) {
+    if (!str || contacts.length === 0) {
+        drawIntoContainer(contacts);
+        return;
+    }
+    const result = contacts.filter(function (contact) {
+        return contact.name.startsWith(str) || contact.telNumber.includes(str);
+    });
+    drawIntoContainer(result);
 }
 
-function myFunction() {
-    var x = document.createElement("BUTTON");
-    var t = document.createTextNode("Click me");
-    x.appendChild(t);
-    document.body.appendChild(x);
-  }
 
 
-let user1 = {
-    name: "Azam",
-    nomer: 924238790,
-    adress: "koniboom",
-    El_pochta: "azamjon@gmail.com"
+
+drawIntoContainer(contacts);
+
+
+
+function updateContact(contact) {
+    contacts.splice(index, 1, contact);
 }
-for (key in user1) {
-    console.log(key)
-    console.log(user1[key])
+
+
+function drawIntoContainer(items) {
+    container.innerHTML = '';
+    items.forEach(function (item, i) {
+        const div = document.createElement('p');
+        div.innerHTML = `${item.name}${item.telNumber} ${item.adress}`;
+        const btn = document.createElement('button');
+        btn.innerHTML = 'delete';
+        btn.setAttribute('data-id', i);
+        btn.onclick = function (evt) {
+            const el = evt.currentTarget;
+            const id = +el.getAttribute('data-id');
+            contacts.splice(i, 1);
+            drawIntoContainer(contacts);
+        }
+
+
+        const butn = document.createElement('button');
+        butn.innerHTML = 'edit';
+        butn.setAttribute('data-id', i);
+        butn.onclick = function (evt) {
+            const el = evt.currentTarget;
+            const id2 = +el.getAttribute('data-id');
+
+            const obj = {};
+            obj.name = window.prompt('name')
+            obj.telNumber = window.prompt('number');
+            obj.adress = window.prompt('adress')
+            contacts.splice(i, 1, obj);
+            drawIntoContainer(contacts);
+        }
+        div.appendChild(btn)
+        div.appendChild(butn);
+        container.appendChild(div);
+    }); 
+
 }
